@@ -7,6 +7,7 @@ from scipy.linalg import svdvals
 from sklearn.preprocessing import normalize
 
 #Computes the minimum singular value of the desired matrix
+#Works for Gaussian
 def minSV1(A,x,q,beta):
     m_in = A.shape[0]
     inner_p = [0]*m_in
@@ -20,6 +21,7 @@ def minSV1(A,x,q,beta):
     A_S = np.asmatrix(A_df)
     return (np.linalg.norm(A_S*x))/(np.linalg.norm(x))
 
+#Works for everything
 def minSV2(A,q,beta):
     min_sv = A.shape[0] #initialize to something that will be greater than any singular value
     for i in range(100):
