@@ -7,6 +7,7 @@ from gencorrup import *
 from scipy.linalg import svdvals
 from sklearn.preprocessing import normalize
 
+#The code of algorithm 2 of QRK
 def QuantileRK2_ex(A,x,b,q,t,beta,corr_size,num_iter):
   m = A.shape[0]
   n = A.shape[1]
@@ -30,7 +31,7 @@ def QuantileRK2_ex(A,x,b,q,t,beta,corr_size,num_iter):
     error[k] = np.linalg.norm(x_k - x)**2
   return [x_k,list(range(num_iter)),error]
 
-
+#Algorithm 2 of QRK, carried out on a system under the influence of mean 0 noise
 def QuantileRK2_ex_n(A,x,b,q,t,beta,corr_size,sig,num_iter):
   m = A.shape[0]
   n = A.shape[1]

@@ -6,7 +6,7 @@ import random as random
 from scipy.linalg import svdvals
 from sklearn.preprocessing import normalize
 
-
+#Generates corruption of a given rate and size for some linear system Ax=b
 def generateCorruption_s(b,corruption_rate,corruption_size):
   m_b = b.shape[0]
   nums = np.zeros(m_b)

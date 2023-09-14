@@ -7,7 +7,7 @@ from minsv import *
 from scipy.linalg import svdvals
 from sklearn.preprocessing import normalize
 
-
+#Plots the error bound from Corollary 1, applied to a noisy corrupted system that runs QRK
 def error_bound_crl_1(A,x,q,beta,n_max,p,num_iter):
   m = A.shape[0]
   n = A.shape[1]
@@ -33,7 +33,7 @@ def error_bound_crl_1(A,x,q,beta,n_max,p,num_iter):
     error[i] = c_a*e_0**2 + ((1-c_a)/phi)*(n_max**2)*(1+(c_2*(m**2)))
   return error
      
-
+#Plots the error bound from Corollary 2, applied to a noisy corrupted system that runs QRK
 def error_bound_crl_2(A,x,q,beta,mu,sig,mu2,sig2,p,num_iter):
   m = A.shape[0]
   n = A.shape[1]
@@ -59,7 +59,7 @@ def error_bound_crl_2(A,x,q,beta,mu,sig,mu2,sig2,p,num_iter):
     error[i] = c_a*e_0**2 + ((1-c_a)/phi)*((mu**2) + (sig**2) + c_2*((m**2)*(mu2**2) + m*(sig2**2)))
   return error
      
-
+#Plots the error bound from Corollary 3, applied to a noisy corrupted system that runs QRK
 def error_bound_crl_3(A,x,q,beta,sig,p,num_iter):
   m = A.shape[0]
   n = A.shape[1]

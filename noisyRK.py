@@ -1,5 +1,6 @@
 import numpy as np
 
+#Simulates the Randomized Kaczmarz algorithm on a noisy, uncorrupted system
 def RK_ex_n(A,x,b,mu,sig,num_iter):
   m = A.shape[0]
   n = A.shape[1]

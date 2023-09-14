@@ -6,6 +6,7 @@ import random as random
 from scipy.linalg import svdvals
 from sklearn.preprocessing import normalize
 
+#Computes the minimum singular value of the desired matrix
 def minSV1(A,x,q,beta):
     m_in = A.shape[0]
     inner_p = [0]*m_in
