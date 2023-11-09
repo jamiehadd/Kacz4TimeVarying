@@ -14,7 +14,7 @@ def error_bound_crl_1(A,x,q,beta,n_max,p,num_iter):
 
   x_1 = np.zeros((n,1))
   x_1[0] = 1
-  sigmin = minSV1(A,x_1,q,beta)
+  sigmin = minSV2(A,q,beta)
   sigmax = np.linalg.svd(A,compute_uv=False).max()
 
   term_1 = ((sigmin**2)/(q*m))*((q-beta)/(q))
@@ -40,7 +40,7 @@ def error_bound_crl_2(A,x,q,beta,mu,sig,mu2,sig2,p,num_iter):
 
   x_1 = np.zeros((n,1))
   x_1[0] = 1
-  sigmin = minSV1(A,x_1,q,beta)
+  sigmin = minSV2(A,q,beta)
   sigmax = np.linalg.svd(A,compute_uv=False).max()
 
   term_1 = ((sigmin**2)/(q*m))*((q-beta)/(q))

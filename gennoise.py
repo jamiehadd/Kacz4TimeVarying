@@ -11,5 +11,5 @@ from sklearn.preprocessing import normalize
 def generateNoise(b,mu,sig):
   m_b = b.shape[0]
   noise = 1*np.random.normal(mu, sig, size=(m_b,1))
-  noise_max = noise.max()
-  return [b + noise, noise_max]
+  noise_max = np.absolute(noise).max()
+  return [b + noise, noise, noise_max]
