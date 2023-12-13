@@ -41,9 +41,17 @@ def QuantileRK2(A,x,b,q,t,beta,corr_size,sig,num_iter):
 
     # get a list containing the indices of the admissible rows
     B = np.where(residuals <= q_quantile)[0]
+    if k==0:
+        print(B)
+        print(C[1])
     
     # determine the set of uncorrupted admissible rows, and select the noise from those elements
     B_S = B[B not in C[1]]
+    #B_S = [i for i in B if i not in C[1]]
+    if k==0:
+        print(B_S)
+    
+    #noise_B_S = list(filter(lambda x: x in B_S, ))
     noise_B_S = noise[B_S].reshape(noise[B_S].shape[1],1)
     NBS.append(noise_B_S)
     

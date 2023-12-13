@@ -12,6 +12,6 @@ def generateCorruption_s(b,corruption_rate,corruption_size):
   nums = np.zeros(m_b)
   nums[:int(m_b*corruption_rate)] = 1
   np.random.shuffle(nums)
-  index_c = np.where(nums == 1)
+  index_c = np.where(nums == 1)[0]
   corruption = np.asarray(nums).reshape(m_b,1)*(corruption_size)
   return [b + corruption, index_c]

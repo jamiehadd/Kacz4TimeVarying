@@ -15,7 +15,7 @@ def error_bound_thm_2_4(A,x,q,beta,N,NBS,p,num_iter):
   x_1 = np.zeros((n,1))
   x_1[0] = 1
   #sigmin = minSV1(A,x_1,q,beta)
-  sigmin = minSV2(A,q,beta)
+  sigmin = (q-beta)*np.sqrt((q-beta)*m/n)
   sigmax = np.linalg.svd(A,compute_uv=False).max()
 
   term_1 = ((sigmin**2)/(q*m))*((q-beta)/(q))
