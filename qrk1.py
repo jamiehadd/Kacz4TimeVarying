@@ -14,6 +14,9 @@ def QuantileRK1(A,x,b,q,t,beta,corr_size,num_iter):
   x_j = np.zeros((n,1))
   error = [0]*num_iter
   for j in range(num_iter):
+    #moved to front
+    error[j] = np.linalg.norm(x_j - x)**2
+    
     # this will be the corrupted b that we use
     b_k = generateCorruption_s(b,beta,corr_size)
 
@@ -46,7 +49,7 @@ def QuantileRK1(A,x,b,q,t,beta,corr_size,num_iter):
       x_j = x_j_new
     else:
       pass
-    error[j] = np.linalg.norm(x_j - x)**2
+    
   return [x_j,list(range(num_iter)),error]
 
 
@@ -57,6 +60,9 @@ def QuantileRK1_ex(A,x,b,q,t,beta,corr_size,num_iter):
   x_j = np.zeros((n,1))
   error = [0]*num_iter
   for j in range(num_iter):
+    #moved to front
+    error[j] = np.linalg.norm(x_j - x)**2
+    
     # this will be the corrupted b that we use
     b_k = generateCorruption_s(b,beta,corr_size)
 
@@ -80,5 +86,4 @@ def QuantileRK1_ex(A,x,b,q,t,beta,corr_size,num_iter):
       x_j = x_j_new
     else:
       pass
-    error[j] = np.linalg.norm(x_j - x)**2
   return [x_j,list(range(num_iter)),error]

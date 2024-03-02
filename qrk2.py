@@ -20,6 +20,9 @@ def QuantileRK2(A,x,b,q,t,beta,corr_size,sig,num_iter):
   NBS = []
     
   for k in range(num_iter):
+    #moved from end to beginning
+    error[k] = np.linalg.norm(x_k - x)**2
+    
     # this will be the corrupted b that we use
     C = generateCorruption_s(b,beta,corr_size)
     b_k = C[0]
@@ -60,5 +63,4 @@ def QuantileRK2(A,x,b,q,t,beta,corr_size,sig,num_iter):
 
     x_k_new = x_k - ((np.inner(x_k.T,A[i,:])[0] - b_k[i][0])*A[i,:].T).reshape(n,1)
     x_k = x_k_new
-    error[k] = np.linalg.norm(x_k - x)**2
   return [x_k,list(range(num_iter)),error,max_noise,N,NBS]

@@ -28,7 +28,8 @@ def error_bound_thm_2_4(A,x,q,beta,N,NBS,p,num_iter):
   e_0 = np.linalg.norm(-1*x)**2
 
   error = [0]*num_iter
-  error[0] = e_0**2
+  #changed from e_0**2
+  error[0] = e_0
   for i in range(1,num_iter):
     t2 = (np.linalg.norm(NBS[i],2)**2)/((NBS[i]).shape[0])
     #modify
